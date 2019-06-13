@@ -11,12 +11,14 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CollectionComponent } from './collection/collection.component';
+import { RatingCategoryPipe } from './pipes/rating-category.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    CollectionComponent
+    CollectionComponent,
+    RatingCategoryPipe
   ],
   imports: [
     BrowserModule,
