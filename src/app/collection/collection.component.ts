@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { IBook } from '../ibook';
 
 @Component({
-  selector: 'my-collection',
   templateUrl: './collection.component.html',
   styleUrls: ['./collection.component.css']
 })
