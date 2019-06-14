@@ -13,6 +13,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CollectionComponent } from './collection/collection.component';
 import { RatingCategoryPipe } from './pipes/rating-category.pipe';
 import { TabsComponent } from './tabs/tabs.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TabsComponent } from './tabs/tabs.component';
     AboutComponent,
     CollectionComponent,
     RatingCategoryPipe,
-    TabsComponent
+    TabsComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
