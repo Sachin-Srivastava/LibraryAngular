@@ -45,4 +45,46 @@ export class DataService {
     );
   }
 
+  getBook(id: number): Observable<IBook> {
+    return this._http.get<IBook>(`${this._booksUrl}/${id.toString()}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+
+  }
+
+
+  getPreviousBookId(id: number): Observable<number> {
+    return this.getBooks()
+    .pipe(
+      map((books: IBook[]) => {
+        return books[Math.max(0, books.findIndex(b => b.id === id) - 1)].id;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  getNextBookId(id: number): Observable<number> {
+    return this.getBooks()
+    .pipe(
+      map((books: IBook[]) => {
+        return books[Math.min(books.length - 1, books.findIndex(b => b.id === id) + 1)].id;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+ updateBook(book: IBook): Observable<IBook> {
+    return this._http.put<IBook>(this._booksUrl, book)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  deleteBook(id: number): Observable<{}> {
+    return this._http.delete(`${this._booksUrl}/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 }
