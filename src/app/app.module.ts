@@ -18,6 +18,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { RatingComponent } from './rating/rating.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookGuardService } from './guards/book-guard.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     // import HttpClientModule after BrowserModule.
     HttpClientModule
   ],
-  providers: [DataService],
+  providers: [DataService,
+              BookGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

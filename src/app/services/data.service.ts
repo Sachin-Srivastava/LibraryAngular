@@ -87,4 +87,8 @@ export class DataService {
         catchError(this.handleError)
       );
   }
+  canActivate(id): Observable<boolean> {
+    return this._http.get<boolean>(`${this._booksUrl+"/canactivate"}/${id}`)
+      .pipe(catchError(this.handleError));
+  }
 }
