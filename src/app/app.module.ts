@@ -1,9 +1,11 @@
+import { DataService } from './services/data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { MatListModule, MatCardModule, MatSlideToggleModule, MatDialogModule,
   MatIconModule, MatInputModule, MatSnackBarModule, MatTabsModule,
   MatButtonModule, MatLineModule, MatToolbarModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +16,7 @@ import { CollectionComponent } from './collection/collection.component';
 import { RatingCategoryPipe } from './pipes/rating-category.pipe';
 import { TabsComponent } from './tabs/tabs.component';
 import { RatingComponent } from './rating/rating.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,9 +42,12 @@ import { RatingComponent } from './rating/rating.component';
     MatLineModule,
     MatInputModule,
     MatToolbarModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    // import HttpClientModule after BrowserModule.
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
