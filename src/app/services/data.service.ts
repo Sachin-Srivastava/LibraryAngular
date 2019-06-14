@@ -91,4 +91,11 @@ export class DataService {
     return this._http.get<boolean>(`${this._booksUrl+"/canactivate"}/${id}`)
       .pipe(catchError(this.handleError));
   }
+  addBook(book: IBook): Observable<Ibook> {
+    return this._http.post<IBook>(this._booksUrl, book)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
 }

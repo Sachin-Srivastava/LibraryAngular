@@ -5,6 +5,7 @@ import { DataService } from '../services/data.service';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { BookDetailComponent } from '../book-detail/book-detail.component';
+import { NewBookComponent } from '../new-book/new-book.component';
 
 
 @Component({
@@ -91,4 +92,24 @@ delete(book: IBook) {
         error => this.updateMessage(<any>error, 'ERROR'));
   }
 
+  addBook(): void {
+    let config = {width: '650px', height: '650px', position: {top: '50px'},
+    disableClose: true};
+    let dialogRef = this._dialog.open(NewBookComponent, config);
+    dialogRef.afterClosed().subscribe(newBook => {
+      if (newBook) {
+        this._dataService.addBook(newBook)
+        .subscribe(
+          () =>
+          {
+            this.getBooks()
+            this._snackBar.open(`Book added!`,
+            'DISMISS', {
+              duration: 3000
+            });
+          },
+          error => this.updateMessage(<any>error, 'ERROR'));
+        }
+      });
+    }
 }

@@ -19,6 +19,7 @@ import { RatingComponent } from './rating/rating.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookGuardService } from './guards/book-guard.service';
+import { NewBookComponent } from './new-book/new-book.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BookGuardService } from './guards/book-guard.service';
     RatingCategoryPipe,
     TabsComponent,
     RatingComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    NewBookComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,9 @@ import { BookGuardService } from './guards/book-guard.service';
   ],
   providers: [DataService,
               BookGuardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    NewBookComponent
+  ]
 })
 export class AppModule { }
